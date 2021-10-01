@@ -4,7 +4,6 @@ import com.example.Exercitii.Method.Add;
 import com.example.Exercitii.Method.Concat;
 import com.example.Exercitii.Method.Operation;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -15,13 +14,13 @@ public class Ex3Controller {
         return numbers.a + numbers.b;
     }
 
-    @PostMapping("concat")
+    @PostMapping("/concat")
     public String concat(@RequestBody Concat concat ) {
         return concat.a + concat.b;
     }
 
     @PostMapping("/operation")
-    public Double op(@RequestBody Operation numbers) {
+    public Double operation(@RequestBody Operation numbers) {
         return switch (numbers.operation) {
             case "+" -> (double) numbers.a + numbers.b;
             case "-" -> (double) numbers.a - numbers.b;
